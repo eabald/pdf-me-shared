@@ -7,7 +7,7 @@ import {
   CreateDateColumn,
   RelationId,
 } from 'typeorm';
-import { UserEntity } from './user.entity'
+import { UserEntity } from './user.entity';
 
 @Entity('templates')
 export class TemplateEntity {
@@ -20,10 +20,13 @@ export class TemplateEntity {
   @Column({ type: 'text' })
   content: string;
 
-  @Index('post_authorId_index')
-  @ManyToOne(() => UserEntity, (owner: UserEntity) => owner.templates)
+  @Index('template_ownerId_index')
+  @ManyToOne(() => UserEntity, (owner: UserEntity) => owner.templates, {
+    cascade: true,
+  })
   public owner: UserEntity;
 
+  @Column()
   @RelationId((template: TemplateEntity) => template.owner)
   public ownerId: number;
 
