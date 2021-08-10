@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { TemplateEntity } from './template.entity'
-
+import { FileEntity } from './file.entity'
 @Entity('users')
 export class UserEntity {
   @PrimaryGeneratedColumn()
@@ -23,4 +23,7 @@ export class UserEntity {
 
   @OneToMany(() => TemplateEntity, (template: TemplateEntity) => template.owner)
   public templates: TemplateEntity[];
+
+  @OneToMany(() => FileEntity, (file: FileEntity) => file.owner)
+  public files: FileEntity[];
 }
