@@ -7,7 +7,11 @@ class DocumentData {
 export class GenerateDocumentDto {
   @IsNumber()
   @IsNotEmpty()
-  documentId: number;
+  templateId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  userId: number;
 
   @IsNotEmptyObject()
   content: DocumentData;

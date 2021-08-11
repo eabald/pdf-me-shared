@@ -15,7 +15,7 @@ export class FileEntity {
   public id?: number;
 
   @Column()
-  name: string;
+  filename: string;
 
   @Index('file_ownerId_index')
   @ManyToOne(() => UserEntity, (owner: UserEntity) => owner.templates, {
