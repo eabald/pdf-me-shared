@@ -21,6 +21,9 @@ export class UserEntity {
   @Column({ default: false })
   public isResettingPassword: boolean;
 
+  @Column({ nullable: true })
+  public key: string
+
   @OneToMany(() => TemplateEntity, (template: TemplateEntity) => template.owner)
   public templates: TemplateEntity[];
 
