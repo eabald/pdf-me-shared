@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, OneToOne } from 'typeorm';
 import { TemplateEntity } from './template.entity'
 import { FileEntity } from './file.entity'
+import { LimitEntity } from './limit.entity';
 @Entity('users')
 export class UserEntity {
   @PrimaryGeneratedColumn()
@@ -29,4 +30,7 @@ export class UserEntity {
 
   @OneToMany(() => FileEntity, (file: FileEntity) => file.owner)
   public files: FileEntity[];
+
+  @OneToOne(() => LimitEntity, (limit: LimitEntity) => limit.user)
+  public limit: LimitEntity;
 }
