@@ -20,6 +20,12 @@ export class LimitEntity {
   @Column({ default: 5 })
   perHourLimit: number;
 
+  @Column({ default: 0 })
+  extraLimit: number;
+
+  @Column({ type: 'timestamp', nullable: true })
+  extraValidTo: Date;
+
   @OneToOne(() => UserEntity, (user: UserEntity) => user.limit, {
     cascade: true,
   })

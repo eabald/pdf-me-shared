@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty } from 'class-validator';
 
-export class CreateUserDto {
+export class CreateStripeCustomerDto {
   @IsNotEmpty()
   @IsString()
   email: string;
@@ -8,8 +8,4 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   name: string;
-
-  @IsNotEmpty()
-  @IsString()
-  password: string;
 }

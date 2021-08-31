@@ -14,6 +14,9 @@ export class UserEntity {
   public isEmailConfirmed: boolean;
 
   @Column()
+  public stripeCustomerId: string;
+
+  @Column()
   public name: string;
 
   @Column()
