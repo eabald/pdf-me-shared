@@ -2,6 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, OneToMany, OneToOne } from 'typ
 import { TemplateEntity } from './template.entity'
 import { FileEntity } from './file.entity'
 import { LimitEntity } from './limit.entity';
+import { PaymentEntity } from './payment.entity';
 @Entity('users')
 export class UserEntity {
   @PrimaryGeneratedColumn()
@@ -33,6 +34,9 @@ export class UserEntity {
 
   @OneToMany(() => FileEntity, (file: FileEntity) => file.owner)
   public files: FileEntity[];
+
+  @OneToMany(() => PaymentEntity, (payment: PaymentEntity) => payment.user)
+  public payments: PaymentEntity[];
 
   @OneToOne(() => LimitEntity, (limit: LimitEntity) => limit.user)
   public limit: LimitEntity;
