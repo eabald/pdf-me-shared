@@ -6,8 +6,10 @@ import {
   ManyToOne,
   RelationId,
   CreateDateColumn,
+  JoinColumn,
 } from 'typeorm';
 import { UserEntity } from './user.entity';
+import { ProductEntity } from './product.entity';
 
 @Entity('payments')
 export class PaymentEntity {
@@ -19,6 +21,14 @@ export class PaymentEntity {
 
   @Column({ default: false })
   public confirmed: boolean;
+
+  @Column()
+  public transactionId: string;
+
+  @Index('payment_product_index')
+  @ManyToOne(() => ProductEntity)
+  @JoinColumn()
+  product: ProductEntity;
 
   @Index('payment_userId_index')
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.payments)

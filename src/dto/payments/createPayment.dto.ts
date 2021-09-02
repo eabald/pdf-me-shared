@@ -11,9 +11,16 @@ export class CreatePaymentDto {
   paymentMethodId: string;
 
   @IsNotEmpty()
-  @IsString()
-  userId: string;
+  @IsNumber()
+  userId: number;
 
+  @IsNotEmpty()
+  @IsNumber()
+  productId: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  customerId: string;
 
   @IsNotEmpty()
   @IsString()
