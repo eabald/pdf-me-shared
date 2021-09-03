@@ -2,12 +2,8 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  Index,
-  ManyToOne,
-  RelationId,
   CreateDateColumn,
 } from 'typeorm';
-import { PaymentEntity } from './payment.entity';
 
 @Entity('products')
 export class ProductEntity {
@@ -25,6 +21,9 @@ export class ProductEntity {
 
   @Column({ default: false })
   public reoccurring: boolean;
+
+  @Column({ nullable: true})
+  public validFor: number;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
