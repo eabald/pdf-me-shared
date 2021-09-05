@@ -5,12 +5,12 @@ import {
   Index,
 } from 'typeorm';
 
-@Entity('stripeEvents')
+@Entity('stripeEvent')
 export class StripeEventEntity {
   @PrimaryGeneratedColumn()
   public id?: number;
 
   @Index('event_id_index')
-  @Column()
+  @Column({ name: 'event_id' })
   eventId: string;
 }

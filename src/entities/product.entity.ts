@@ -5,12 +5,12 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 
-@Entity('products')
+@Entity('product')
 export class ProductEntity {
   @PrimaryGeneratedColumn()
   public id?: number;
 
-  @Column({ type: 'decimal' })
+  @Column({ type: 'decimal', precision: 4, scale: 2 })
   public amount: number;
 
   @Column()
@@ -19,10 +19,13 @@ export class ProductEntity {
   @Column()
   public size: number;
 
+  @Column({ name: 'stripe_product_id' })
+  stripeProductId: string;
+
   @Column({ default: false })
   public reoccurring: boolean;
 
-  @Column({ nullable: true})
+  @Column({ name: 'valid_for', nullable: true})
   public validFor: number;
 
   @CreateDateColumn({ type: 'timestamp' })

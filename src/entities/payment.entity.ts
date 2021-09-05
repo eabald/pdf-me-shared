@@ -11,18 +11,18 @@ import {
 import { UserEntity } from './user.entity';
 import { ProductEntity } from './product.entity';
 
-@Entity('payments')
+@Entity('payment')
 export class PaymentEntity {
   @PrimaryGeneratedColumn()
   public id?: number;
 
-  @Column({ type: 'decimal' })
+  @Column({ type: 'decimal', precision: 4, scale: 2 })
   public amount: number;
 
   @Column({ default: false })
   public confirmed: boolean;
 
-  @Column()
+  @Column({ name: 'transaction_id' })
   public transactionId: string;
 
   @Index('payment_product_index')
@@ -30,17 +30,21 @@ export class PaymentEntity {
   @JoinColumn()
   product: ProductEntity;
 
+  @Column({ name: 'product_id' })
+  @RelationId((payment: PaymentEntity) => payment.product)
+  public productId: number;
+
   @Index('payment_userId_index')
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.payments)
   public user: UserEntity;
 
-  @Column()
+  @Column({ name: 'user_id' })
   @RelationId((payment: PaymentEntity) => payment.user)
   public userId: number;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @Column({ name: 'fulfilled_at', type: 'timestamp', nullable: true })
   fulfilledAt: Date;
 }

@@ -9,21 +9,21 @@ import {
 } from 'typeorm';
 import { UserEntity } from './user.entity';
 
-@Entity('limits')
+@Entity('limit')
 export class LimitEntity {
   @PrimaryGeneratedColumn()
   public id?: number;
 
-  @Column({ default: 5 })
+  @Column({ name: 'current_limit', default: 5 })
   currentLimit: number;
 
-  @Column({ default: 5 })
+  @Column({ name: 'per_hour_limit', default: 5 })
   perHourLimit: number;
 
-  @Column({ default: 0 })
+  @Column({ name: 'extra_limit', default: 0 })
   extraLimit: number;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @Column({ name: 'extra_valid_to', type: 'timestamp', nullable: true })
   extraValidTo: Date;
 
   @OneToOne(() => UserEntity, (user: UserEntity) => user.limit, {
@@ -31,10 +31,10 @@ export class LimitEntity {
   })
   public user: UserEntity;
 
-  @Column()
+  @Column({ name: 'user_id' })
   @RelationId((limit: LimitEntity) => limit.user)
   public userId: number;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 }

@@ -3,7 +3,7 @@ import { TemplateEntity } from './template.entity'
 import { FileEntity } from './file.entity'
 import { LimitEntity } from './limit.entity';
 import { PaymentEntity } from './payment.entity';
-@Entity('users')
+@Entity('user')
 export class UserEntity {
   @PrimaryGeneratedColumn()
   public id?: number;
@@ -11,10 +11,10 @@ export class UserEntity {
   @Column({ unique: true })
   public email: string;
 
-  @Column({ default: false })
+  @Column({ name: 'is_email_confirmed', default: false })
   public isEmailConfirmed: boolean;
 
-  @Column()
+  @Column({ name: 'stripe_customer_id' })
   public stripeCustomerId: string;
 
   @Column()
@@ -23,7 +23,7 @@ export class UserEntity {
   @Column()
   public password: string;
 
-  @Column({ default: false })
+  @Column({ name: 'is_resetting_password', default: false })
   public isResettingPassword: boolean;
 
   @Column({ nullable: true })

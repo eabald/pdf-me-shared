@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { UserEntity } from './user.entity';
 
-@Entity('templates')
+@Entity('template')
 export class TemplateEntity {
   @PrimaryGeneratedColumn()
   public id?: number;
@@ -26,10 +26,10 @@ export class TemplateEntity {
   })
   public owner: UserEntity;
 
-  @Column()
+  @Column({ name: 'owner_id' })
   @RelationId((template: TemplateEntity) => template.owner)
   public ownerId: number;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 }
