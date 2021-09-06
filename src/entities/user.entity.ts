@@ -3,6 +3,7 @@ import { TemplateEntity } from './template.entity'
 import { FileEntity } from './file.entity'
 import { LimitEntity } from './limit.entity';
 import { PaymentEntity } from './payment.entity';
+import { InvoiceEntity } from './invoice.entity';
 @Entity('user')
 export class UserEntity {
   @PrimaryGeneratedColumn()
@@ -37,6 +38,9 @@ export class UserEntity {
 
   @OneToMany(() => PaymentEntity, (payment: PaymentEntity) => payment.user)
   public payments: PaymentEntity[];
+
+  @OneToMany(() => InvoiceEntity, (invoice: InvoiceEntity) => invoice.user)
+  public invoices: InvoiceEntity[];
 
   @OneToOne(() => LimitEntity, (limit: LimitEntity) => limit.user)
   public limit: LimitEntity;

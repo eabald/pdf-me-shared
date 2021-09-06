@@ -28,6 +28,6 @@ export class ProductEntity {
   @Column({ name: 'valid_for', nullable: true})
   public validFor: number;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 }

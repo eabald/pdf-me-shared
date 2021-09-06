@@ -5,3 +5,4 @@ export * from './limit.entity';
 export * from './payment.entity';
 export * from './product.entity';
 export * from './stripeEvent.entity';
+export * from './invoice.entity';
