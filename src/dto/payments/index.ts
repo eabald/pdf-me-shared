@@ -5,3 +5,4 @@ export * from './stripeWebhookData.dto';
 export * from './addCreditCard.dto';
 export * from './createPaymentApi.dto';
 export * from './createSubscription.dto';
+export * from './createInvoice.dto';

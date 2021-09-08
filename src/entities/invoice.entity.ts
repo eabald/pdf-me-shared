@@ -14,12 +14,13 @@ export class InvoiceEntity {
   @CreateDateColumn({ name: 'invoice_date', type: 'timestamp' })
   public invoiceDate: Date;
 
+  @Index('invoice_filename_index')
+  @Column({ name: 'filename', nullable: true, default: null })
+  public filename: string;
+
   @Index('invoice_is_send_index')
   @Column({ name: 'is_send', default: false })
   public isSend: boolean;
-
-  @Column({ name: 'stripe_customer_id' })
-  public stripeCustomerId: string;
 
   @ManyToOne(() => ProductEntity)
   @JoinColumn()
