@@ -5,3 +5,4 @@ export * from './document-generation';
 export * from './files';
 export * from './limits';
 export * from './payments';
+export * from './emails';
