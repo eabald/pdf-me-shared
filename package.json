@@ -22,6 +22,9 @@
     "url": "https://github.com/eabald/pdf-me-shared/issues"
   },
   "homepage": "https://github.com/eabald/pdf-me-shared#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "nodemon": "^2.0.3",
     "ts-node": "^9.0.0",
