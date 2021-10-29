@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/eabald/pdf-me-shared#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/@eabald"
   },
   "devDependencies": {
     "nodemon": "^2.0.3",
