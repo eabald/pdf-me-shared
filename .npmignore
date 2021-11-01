@@ -1,2 +1,5 @@
 .github
 nodemon.json
+src
+tsconfig.json
+.eslintrc.js
