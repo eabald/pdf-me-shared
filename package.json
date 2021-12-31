@@ -1,6 +1,6 @@
 {
   "name": "@eabald/pdf-me-shared",
-  "version": "0.0.1-alfa",
+  "version": "0.0.2",
   "description": "",
   "scripts": {
     "build": "rm tsconfig.tsbuildinfo && rm -rf dist && mkdir dist && node_modules/.bin/tsc -b -v",
