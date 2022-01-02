@@ -1,9 +1,9 @@
 {
   "name": "@eabald/pdf-me-shared",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "scripts": {
-    "build": "rm tsconfig.tsbuildinfo && rm -rf dist && mkdir dist && node_modules/.bin/tsc -b -v",
+    "build": " [ ! -e tsconfig.tsbuildinfo ] || rm tsconfig.tsbuildinfo && rm -rf dist && mkdir dist && node_modules/.bin/tsc -b -v",
     "build:watch": "CHOKIDAR_USEPOLLING=1 node_modules/.bin/tsc --watch --preserveWatchOutput",
     "start:dev": "npm run build:watch",
     "prepare" : "npm run build",
